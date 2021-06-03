@@ -1,9 +1,12 @@
 const Reviewers = require('../../models/reviewers/reviewers');
+const Reviews = require('../../models/reviews/reviews');
 
 const getReviewers = () => new Promise(async (resolve , reject) => {
     {
         try {
-            const result = Reviewers.findAll();
+            const result = Reviewers.findAll({
+                include : Reviews
+            });
             resolve(result);
         } catch (error) {
             reject(error);

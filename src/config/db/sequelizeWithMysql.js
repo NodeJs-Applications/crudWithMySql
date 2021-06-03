@@ -14,7 +14,7 @@ const dbConnection = async () => {
         console.log("DB Connection Failed" , error);
     }
     try {
-        sequelize.sync();
+        sequelize.sync({ alter: true });
         console.log("All Models are in sync");
     } catch (error) {
         console.log("All Models are not in sync" , error);

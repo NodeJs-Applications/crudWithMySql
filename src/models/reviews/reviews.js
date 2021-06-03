@@ -14,7 +14,7 @@ Reviews.init({
         primaryKey : true
     },
     rating : {
-        type : DataTypes.INTEGER,
+        type : DataTypes.FLOAT,
         allowNull : false
     }
     //,
@@ -32,6 +32,8 @@ Reviews.init({
 })
 
 Reviewers.hasMany(Reviews);
+Reviews.belongsTo(Reviewers);
 Series.hasMany(Reviews);
+Reviews.belongsTo(Series);
 
 module.exports = Reviews;
